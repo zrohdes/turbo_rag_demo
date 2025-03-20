@@ -140,25 +140,7 @@ def create_conversation_chain(vectorstore):
 
         llm = ChatGoogleGenerativeAI(
             model="gemini-1.5-flash",
-            temperature=0.2,
-            safety_settings=[
-                {
-                    "category": "HARM_CATEGORY_HARASSMENT",
-                    "threshold": "BLOCK_NONE"
-                },
-                {
-                    "category": "HARM_CATEGORY_HATE_SPEECH",
-                    "threshold": "BLOCK_NONE"
-                },
-                {
-                   "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
-                   "threshold": "BLOCK_NONE"
-                },
-                {
-                   "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
-                   "threshold": "BLOCK_NONE"
-                }
-            ]
+            temperature=0.2
         )
 
         conversation_chain = ConversationalRetrievalChain.from_llm(
